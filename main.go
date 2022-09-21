@@ -22,6 +22,7 @@ import (
 	"github.com/goji/httpauth"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	"github.com/mdp/qrterminal/v3"
 )
 
 type Configure struct {
@@ -241,7 +242,10 @@ func main() {
 		gcfg.Addr = ":" + gcfg.Addr
 	}
 	_, port, _ := net.SplitHostPort(gcfg.Addr)
+	localaddr := fmt.Sprintf("http://%s:%s", getLocalIP(), port)
 	log.Printf("listening on %s, local address http://%s:%s\n", strconv.Quote(gcfg.Addr), getLocalIP(), port)
+	// Generate a 'dense' qrcode with the 'Low' level error correction and write it to Stdout
+	qrterminal.Generate(localaddr, qrterminal.L, os.Stdout)
 
 	srv := &http.Server{
 		Handler: mainRouter,
