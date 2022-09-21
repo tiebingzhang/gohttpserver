@@ -5,12 +5,8 @@
 - Goal: Make the best HTTP File Server.
 - Features: Human-friendly UI, file uploading support, direct QR-code generation for Apple & Android install package.
 
-[Demo site](https://gohttpserver.herokuapp.com/)
-
-- 目标: 做最好的HTTP文件服务器
-- 功能: 人性化的UI体验，文件的上传支持，安卓和苹果安装包的二维码直接生成。
-
-**Binaries** can be downloaded from [this repo releases](https://github.com/codeskyblue/gohttpserver/releases/)
+# Added Terminal QR code
+![screen](testdata/filetypes/terminal-QR.png)
 
 ## Requirements
 Tested with go-1.16
